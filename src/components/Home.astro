@@ -1,0 +1,57 @@
+---
+interface HeroContent {
+  title: string;
+  description: string;
+  buttonText: string;
+  imageAlt: string;
+  imageSrc: string;
+}
+
+const heroContent: HeroContent = {
+  title: "Agenda y gestiona servicios automotrices fácilmente",
+  description: "Dueños de vehículos y talleres conectados en una sola plataforma. Simplifica la gestión, mejora la comunicación y optimiza tus servicios",
+  buttonText: "Probar aplicativo",
+  imageAlt: "Imagen de inicio - AutoFix",
+  imageSrc: "./assets/images/home.webp"
+};
+---
+
+<section class="min-h-screen bg-second-complementary pt-24 pb-16">
+  <div class="container mx-auto px-4 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Contenido de texto -->
+      <div class="text-center lg:text-left space-y-8 order-2 lg:order-1">
+        <h1 class="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-dark leading-tight">
+          {heroContent.title}
+        </h1>
+
+        <p class="text-lg sm:text-xl text-gray-700 max-w-[580px] mx-auto lg:mx-0 leading-relaxed">
+          {heroContent.description}
+        </p>
+
+        <div class="pt-4">
+          <button
+            class="bg-first-complementary text-white text-lg sm:text-xl font-bold py-4 px-8 sm:px-12 rounded-full hover:bg-primary hover:text-white transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            {heroContent.buttonText}
+          </button>
+        </div>
+      </div>
+
+      <!-- Imagen -->
+      <div class="flex justify-center lg:justify-end order-1 lg:order-2">
+        <div class="relative group">
+          <img
+            class="w-full max-w-xl md:max-w-2xl lg:max-w-3xl h-auto object-cover rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
+            src={heroContent.imageSrc}
+            alt={heroContent.imageAlt}
+            loading="eager"
+          />
+          <!-- Decorative elements -->
+          <div class="absolute -top-4 -right-4 w-20 h-20 bg-first-complementary/20 rounded-full blur-xl"></div>
+          <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-primary/20 rounded-full blur-lg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
