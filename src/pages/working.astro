@@ -1,0 +1,52 @@
+---
+import LayoutWorking from "../layouts/LayoutWorking.astro";
+import "../styles/global.css";
+
+const currentYear = new Date().getFullYear();
+---
+
+<LayoutWorking title="En Construcción - AutoFix">
+  <main class="min-h-screen bg-gradient-to-br bg-primary">
+    <div
+      class="flex flex-col items-center justify-center min-h-screen px-4 text-center"
+    >
+      <div class="mb-12">
+        <div class="flex items-center justify-center mb-8">
+          <div
+            class="w-24 h-24 bg-light rounded-2xl flex items-center justify-center shadow-2xl"
+          >
+            <img src="/logo.svg" alt="AutoFix Logo" class="w-12 h-12" />
+          </div>
+          <span class="ml-4 text-5xl font-extrabold text-light">AutoFix</span>
+        </div>
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-extrabold text-light mb-8">
+        Estamos trabajando
+      </h1>
+      <p class="text-xl md:text-2xl text-light/90 mb-6 max-w-3xl">
+        Nuestra aplicación web está en desarrollo
+      </p>
+      <p class="text-lg text-light/80 mb-16 max-w-2xl leading-relaxed">
+        Estamos creando una experiencia increíble para conectar dueños de
+        vehículos con talleres especializados. Pronto podrás disfrutar de todas
+        nuestras funcionalidades.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 mb-16">
+        <a
+          href="/"
+          class="bg-first-complementary text-light px-8 py-4 rounded-full font-bold text-lg"
+        >
+          Volver al inicio
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-light/50 text-sm"
+    >
+      © {currentYear} AutoFix. Todos los derechos reservados.
+    </div>
+  </main>
+</LayoutWorking>
