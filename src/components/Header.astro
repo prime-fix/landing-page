@@ -7,7 +7,7 @@ interface NavItem {
 const navItems: NavItem[] = [
   { href: "/", label: "Inicio" },
   { href: "/features", label: "Características" },
-  { href: "/contact", label: "Contacto" }
+  { href: "#contact", label: "Contacto" },
 ];
 ---
 
@@ -44,10 +44,12 @@ const navItems: NavItem[] = [
                 ))}
             </ul>
 
-            <!-- Botón de Probar Aplicativo Desktop -->
-            <button class="hidden md:block bg-first-complementary text-white text-lg font-bold py-3 px-8 rounded-full hover:bg-white hover:text-first-complementary transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                Probar aplicativo
-            </button>
+            <a href="/working">
+                <!-- Botón de Probar Aplicativo Desktop -->
+                <button class="hidden md:block bg-first-complementary text-white text-lg font-bold py-3 px-8 rounded-full hover:bg-white hover:text-first-complementary transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    Probar aplicativo
+                </button>
+            </a>
 
             <!-- Ícono hamburguesa Mobile -->
             <button 
