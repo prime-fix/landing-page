@@ -1,4 +1,7 @@
 ---
+import HomeGuide from "./HomeGuide.astro";
+import HomePresentation from "./HomePresentation.astro";
+
 interface HeroContent {
   title: string;
   description: string;
@@ -47,7 +50,6 @@ const heroContent: HeroContent = {
             alt={heroContent.imageAlt}
             loading="eager"
           />
-          <!-- Decorative elements -->
           <div class="absolute -top-4 -right-4 w-20 h-20 bg-first-complementary/20 rounded-full blur-xl"></div>
           <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-primary/20 rounded-full blur-lg"></div>
         </div>
@@ -55,3 +57,7 @@ const heroContent: HeroContent = {
     </div>
   </div>
 </section>
+
+<HomePresentation />
+
+<HomeGuide />

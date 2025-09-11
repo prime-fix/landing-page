@@ -1,0 +1,57 @@
+---
+import HomeCard from "./HomeCard.astro";
+
+// Datos de los pasos del proceso
+const stepsData = [
+  {
+    number: "01",
+    title: "Registro del usuario",
+    description: "Crea tu cuenta como dueño de vehículo o taller"
+  },
+  {
+    number: "02", 
+    title: "Solicitud de servicio",
+    description: "Los clientes solicitan servicios y los talleres publican la disponibilidad de los técnicos"
+  },
+  {
+    number: "03",
+    title: "Seguimiento",
+    description: "Mantente informado del progreso mediante notificaciones automáticas"
+  }
+];
+---
+
+<section class="py-20 bg-second-complementary mb-20">
+  <div class="container mx-auto px-4">
+    <!-- Título de la sección -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-dark mb-4">
+        ¿Cómo funciona?
+      </h2>
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+        Proceso simple y eficiente en 3 pasos
+      </p>
+    </div>
+
+    <!-- Grid de pasos -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-20">
+      {stepsData.map((step) => (
+        <div class="relative h-full">
+          <!-- Número del paso -->
+          <div class="absolute -top-4 -left-4 w-12 h-12 bg-first-complementary rounded-full flex items-center justify-center z-10">
+            <span class="text-light font-bold text-xl">{step.number}</span>
+          </div>
+          
+          <!-- Card reutilizada con altura fija -->
+          <div class="h-full">
+            <HomeCard 
+              title={step.title}
+              description={step.description}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
