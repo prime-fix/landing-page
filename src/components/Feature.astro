@@ -97,14 +97,14 @@ const workshopFeatures = [
 ];
 ---
 
-<section class="bg-second-complementary py-20 my-12">
-  <div class="container mx-auto px-6 lg:px-8">
+<section class="bg-second-complementary py-16 sm:py-20 lg:py-24 my-6 sm:my-8 lg:my-12">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="text-center mb-24 mt-24">
-      <h1 class="font-extrabold text-4xl md:text-5xl lg:text-6xl text-dark leading-tight mb-10">
+    <div class="text-center mb-16 sm:mb-20 lg:mb-24 mt-12 sm:mt-16 lg:mt-24">
+      <h1 class="font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-dark leading-tight mb-6 sm:mb-8 lg:mb-10 px-4">
         {featureContent.title}
       </h1>
-      <p class="text-lg sm:text-xl lg:text-2xl text-gray-700 max-w-5xl mx-auto leading-relaxed">
+      <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 max-w-3xl sm:max-w-4xl lg:max-w-5xl mx-auto leading-relaxed px-4">
         {featureContent.description}
       </p>
     </div>
@@ -114,34 +114,35 @@ const workshopFeatures = [
     </div>
 </section>
 
-<section class="py-24 bg-light">
-    <div class="mb-32">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">
+<section class="py-16 sm:py-20 lg:py-24 bg-light">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-20 sm:mb-24 lg:mb-32">
+      <div class="text-center mb-12 sm:mb-14 lg:mb-16">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary mb-4 sm:mb-6 px-4">
           Para dueños de vehículos
         </h2>
-        <p class="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4">
           Herramientas intuitivas para gestionar el mantenimiento y cuidado de tus vehículos
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 max-w-7xl mx-auto px-4">
         {vehicleOwnerFeatures.map((feature, index) => (
           <div class="relative group">
-            <div class="absolute -left-8 top-0 w-14 h-14 bg-tertiary-complementary rounded-full flex items-center justify-center z-10 shadow-lg">
-              <span class="text-light font-bold text-xl">{String(index + 1).padStart(2, '0')}</span>
+            <div class="absolute -left-6 sm:-left-8 top-0 w-12 sm:w-14 h-12 sm:h-14 bg-tertiary-complementary rounded-full flex items-center justify-center z-10 shadow-lg">
+              <span class="text-light font-bold text-lg sm:text-xl">{String(index + 1).padStart(2, '0')}</span>
             </div> 
-            <div class="bg-light rounded-2xl p-10 ml-8 shadow-xl border-l-4 border-tertiary-complementary hover:shadow-2xl transition-shadow duration-300">
-              <div class="flex items-start space-x-6">
-                <div class="w-16 h-16 bg-gradient-to-br from-tertiary-complementary/20 to-tertiary-complementary/30 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
-                  <div class="text-tertiary-complementary" set:html={feature.icon}></div>
+            <div class="bg-light rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-10 ml-6 sm:ml-8 shadow-lg sm:shadow-xl border-l-4 border-tertiary-complementary hover:shadow-2xl transition-shadow duration-300">
+              <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-tertiary-complementary/20 to-tertiary-complementary/30 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0 sm:mt-1">
+                  <div class="text-tertiary-complementary text-sm sm:text-base" set:html={feature.icon}></div>
                 </div>
                 
-                <div class="flex-1">
-                  <h3 class="text-dark font-bold text-xl lg:text-2xl mb-4">
+                <div class="flex-1 text-center sm:text-left">
+                  <h3 class="text-dark font-bold text-lg sm:text-xl lg:text-2xl mb-3 sm:mb-4">
                     {feature.title}
                   </h3>
-                  <p class="text-gray-600 leading-relaxed text-base lg:text-lg">
+                  <p class="text-gray-600 leading-relaxed text-sm sm:text-base lg:text-lg">
                     {feature.description}
                   </p>
                 </div>
@@ -152,50 +153,51 @@ const workshopFeatures = [
       </div>
     </div>
 
-    <div class="flex items-center justify-center mt-28">
-      <div class="w-32 h-1 bg-tertiary-complementary rounded-full"></div>
-      <div class="mx-10">
-        <div class="w-12 h-12 bg-first-complementary rounded-full flex items-center justify-center shadow-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 640 640">
+    <div class="flex items-center justify-center mt-20 sm:mt-24 lg:mt-28 px-4">
+      <div class="w-20 sm:w-32 h-1 bg-tertiary-complementary rounded-full"></div>
+      <div class="mx-6 sm:mx-8 lg:mx-10">
+        <div class="w-10 sm:w-12 h-10 sm:h-12 bg-first-complementary rounded-full flex items-center justify-center shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 640 640" class="sm:h-5 sm:w-5">
                 <path fill="#ffffff" d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z"/>
             </svg>
         </div>
       </div>
-      <div class="w-32 h-1 bg-tertiary-complementary rounded-full"></div>
+      <div class="w-20 sm:w-32 h-1 bg-tertiary-complementary rounded-full"></div>
     </div>
-
+  </div>
 </section>
 
-<section class="bg-secondary-complementary py-24">
-    <div class="text-center">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-8">
+<section class="bg-second-complementary py-16 sm:py-20 lg:py-24">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary mb-4 sm:mb-6 lg:mb-8 px-4">
         Para talleres automotrices
       </h2>
-      <p class="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-16">
+      <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4">
         Digitaliza tu taller con herramientas profesionales de gestión y administración
       </p>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
-        {workshopFeatures.map((feature, index) => (
-          <div class="relative h-full">
-            <div class="bg-tertiary-complementary rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-              <div class="flex flex-col items-center text-center space-y-4 flex-grow">
-                <div class="w-16 h-16 bg-light/20 rounded-xl flex items-center justify-center">
-                  <div class="text-light" set:html={feature.icon}></div>
-                </div>
-                <div class="flex-grow flex flex-col justify-center">
-                  <h3 class="text-light font-bold text-xl lg:text-2xl mb-3">
-                    {feature.title}
-                  </h3>
-                  <p class="text-light/90 leading-relaxed text-base lg:text-lg">
-                    {feature.description}
-                  </p>
-                </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto px-4">
+      {workshopFeatures.map((feature, index) => (
+        <div class="relative h-full">
+          <div class="bg-tertiary-complementary rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+            <div class="flex flex-col items-center text-center space-y-4 sm:space-y-6 flex-grow">
+              <div class="w-12 h-12 sm:w-16 sm:h-16 bg-light/20 rounded-lg sm:rounded-xl flex items-center justify-center">
+                <div class="text-light text-sm sm:text-base" set:html={feature.icon}></div>
+              </div>
+              <div class="flex-grow flex flex-col justify-center">
+                <h3 class="text-light font-bold text-lg sm:text-xl lg:text-2xl mb-2 sm:mb-3">
+                  {feature.title}
+                </h3>
+                <p class="text-light/90 leading-relaxed text-sm sm:text-base lg:text-lg">
+                  {feature.description}
+                </p>
               </div>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
