@@ -1,32 +1,9 @@
 ---
+import Feature from "../components/Feature.astro";
 import Layout from "../layouts/Layout.astro";
 
-const featureContent = {
-  title: "Caracterísiticas y funcionalidades",
-  description:
-    "Descubre todas las herramientas diseñadas específicamente para dueños de vehículos y talleres automotrices. Una plataforma completa para digitalizar tu experiencia.",
-};
 ---
 
 <Layout>
-  <section class="min-h-screen bg-second-complementary pt-36">
-    <div class="container mx-auto px-4 py-16">
-      <div class="flex flex-col lg:gap-16 items-center">
-        <!-- Contenido de texto -->
-        <div class="text-center lg:text-left space-y-8">
-          <h1
-            class="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-dark leading-tight"
-          >
-            {featureContent.title}
-          </h1>
-
-          <p
-            class="text-lg sm:text-xl text-gray-700 max-w-[580px] mx-auto lg:mx-0 leading-relaxed"
-          >
-            {featureContent.description}
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Feature />
 </Layout>

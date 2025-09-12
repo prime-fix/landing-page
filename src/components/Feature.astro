@@ -1,0 +1,201 @@
+---
+const featureContent = {
+  title: "Características y funcionalidades",
+  description:
+    "Descubre todas las herramientas diseñadas específicamente para dueños de vehículos y talleres automotrices. Una plataforma completa para digitalizar tu experiencia.",
+};
+
+// SVGs para las características
+const svgIcons = {
+  register: `
+    <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+      <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5H6.5c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+    </svg>
+  `,
+  service: `
+    <svg viewBox="0 0 640 640" fill="currentColor" class="w-6 h-6">
+        <path d="M541.4 162.6C549 155 561.7 156.9 565.5 166.9C572.3 184.6 576 203.9 576 224C576 312.4 504.4 384 416 384C398.5 384 381.6 381.2 365.8 376L178.9 562.9C150.8 591 105.2 591 77.1 562.9C49 534.8 49 489.2 77.1 461.1L264 274.2C258.8 258.4 256 241.6 256 224C256 135.6 327.6 64 416 64C436.1 64 455.4 67.7 473.1 74.5C483.1 78.3 484.9 91 477.4 98.6L388.7 187.3C385.7 190.3 384 194.4 384 198.6L384 240C384 248.8 391.2 256 400 256L441.4 256C445.6 256 449.7 254.3 452.7 251.3L541.4 162.6z"/>
+    </svg>
+  `,
+  history: `
+    <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+      <path d="M13,3A9,9 0 0,0 4,12H1L4.89,15.89L4.96,16.03L9,12H6A7,7 0 0,1 13,5A7,7 0 0,1 20,12A7,7 0 0,1 13,19C11.07,19 9.32,18.21 8.06,16.94L6.64,18.36C8.27,20 10.5,21 13,21A9,9 0 0,0 22,12A9,9 0 0,0 13,3Z"/>
+      <path d="M12,8V13L16.28,15.54L17.5,13.33L14.5,11.5V8H12Z"/>
+    </svg>
+  `,
+  track: `
+    <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+      <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+      <path d="M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+    </svg>
+  `
+};
+
+// Datos para dueños de vehículos
+const vehicleOwnerFeatures = [
+  {
+    title: "Registrar vehículos",
+    description: "Añade todos tus vehículos con información detallada",
+    icon: svgIcons.register
+  },
+  {
+    title: "Solicitar servicios", 
+    description: "Programa citas para mantenimiento, reparaciones o servicios especializados con talleres cercanos",
+    icon: svgIcons.service
+  },
+  {
+    title: "Historial completo",
+    description: "Accede al historial completo de servicios de reparación concretados",
+    icon: svgIcons.history
+  },
+  {
+    title: "Trackeo",
+    description: "Rastrea en tiempo real el estado de tu vehículo",
+    icon: svgIcons.track
+  }
+];
+
+// Datos para talleres automotrices
+const workshopFeatures = [
+  {
+    title: "Registrar taller",
+    description: "Brinda información sobre el taller para que futuros clientes puedan contactarte",
+    icon: `
+      <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-data">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /><path d="M9 17v-4" /><path d="M12 17v-1" /><path d="M15 17v-2" /><path d="M12 17v-1" />
+      </svg>
+    `
+  },
+  {
+    title: "Gestiona técnicos",
+    description: "Agrega información sobre los técnicos que trabajan en el taller",
+    icon: `
+      <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+        <path d="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z"/>
+      </svg>
+    `
+  },
+  {
+    title: "Notificaciones",
+    description: "Recibe notificaciones en tiempo real cada vez que un cliente quiera gozar de tus servicios",
+    icon: `
+      <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+        <path d="M10 21H14C14 22.1 13.1 23 12 23S10 22.1 10 21M21 19V20H3V19L5 17V11C5 7.9 7.03 5.17 10 4.29C10 4.19 10 4.1 10 4C10 2.9 10.9 2 12 2S14 2.9 14 4C14 4.1 14 4.19 14 4.29C16.97 5.17 19 7.9 19 11V17L21 19M17 11C17 8.24 14.76 6 12 6S7 8.24 7 11V18H17V11Z"/>
+      </svg>
+    `
+  },
+  {
+    title: "Reportar estado de vehículo",
+    description: "Modifica en tiempo real el estado del vehículo",
+    icon: `
+      <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5H6.5c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+        <path d="M12 8V13L16.28 15.54L17.5 13.33L14.5 11.5V8H12Z"/>
+      </svg>
+    `
+  }
+];
+---
+
+<section class="bg-second-complementary py-20 my-12">
+  <div class="container mx-auto px-6 lg:px-8">
+    
+    <div class="text-center mb-24 mt-24">
+      <h1 class="font-extrabold text-4xl md:text-5xl lg:text-6xl text-dark leading-tight mb-10">
+        {featureContent.title}
+      </h1>
+      <p class="text-lg sm:text-xl lg:text-2xl text-gray-700 max-w-5xl mx-auto leading-relaxed">
+        {featureContent.description}
+      </p>
+    </div>
+
+    <div class="flex items-center justify-center my-0">
+      <div class="w-full h-1 bg-gradient-to-r from-transparent bg-first-complementary"></div>
+    </div>
+</section>
+
+<section class="py-24 bg-light">
+    <div class="mb-32">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">
+          Para dueños de vehículos
+        </h2>
+        <p class="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Herramientas intuitivas para gestionar el mantenimiento y cuidado de tus vehículos
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 max-w-6xl mx-auto">
+        {vehicleOwnerFeatures.map((feature, index) => (
+          <div class="relative group">
+            <div class="absolute -left-8 top-0 w-14 h-14 bg-tertiary-complementary rounded-full flex items-center justify-center z-10 shadow-lg">
+              <span class="text-light font-bold text-xl">{String(index + 1).padStart(2, '0')}</span>
+            </div> 
+            <div class="bg-light rounded-2xl p-10 ml-8 shadow-xl border-l-4 border-tertiary-complementary hover:shadow-2xl transition-shadow duration-300">
+              <div class="flex items-start space-x-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-tertiary-complementary/20 to-tertiary-complementary/30 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                  <div class="text-tertiary-complementary" set:html={feature.icon}></div>
+                </div>
+                
+                <div class="flex-1">
+                  <h3 class="text-dark font-bold text-xl lg:text-2xl mb-4">
+                    {feature.title}
+                  </h3>
+                  <p class="text-gray-600 leading-relaxed text-base lg:text-lg">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="flex items-center justify-center mt-28">
+      <div class="w-32 h-1 bg-tertiary-complementary rounded-full"></div>
+      <div class="mx-10">
+        <div class="w-12 h-12 bg-first-complementary rounded-full flex items-center justify-center shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 640 640">
+                <path fill="#ffffff" d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z"/>
+            </svg>
+        </div>
+      </div>
+      <div class="w-32 h-1 bg-tertiary-complementary rounded-full"></div>
+    </div>
+
+</section>
+
+<section class="bg-secondary-complementary py-24">
+    <div class="text-center">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-8">
+        Para talleres automotrices
+      </h2>
+      <p class="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-16">
+        Digitaliza tu taller con herramientas profesionales de gestión y administración
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
+        {workshopFeatures.map((feature, index) => (
+          <div class="relative h-full">
+            <div class="bg-tertiary-complementary rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+              <div class="flex flex-col items-center text-center space-y-4 flex-grow">
+                <div class="w-16 h-16 bg-light/20 rounded-xl flex items-center justify-center">
+                  <div class="text-light" set:html={feature.icon}></div>
+                </div>
+                <div class="flex-grow flex flex-col justify-center">
+                  <h3 class="text-light font-bold text-xl lg:text-2xl mb-3">
+                    {feature.title}
+                  </h3>
+                  <p class="text-light/90 leading-relaxed text-base lg:text-lg">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
