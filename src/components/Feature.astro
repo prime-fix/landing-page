@@ -128,21 +128,21 @@ const workshopFeatures = [
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 max-w-7xl mx-auto px-4">
         {vehicleOwnerFeatures.map((feature, index) => (
-          <div class="relative group">
+          <div class="relative group h-full">
             <div class="absolute -left-6 sm:-left-8 top-0 w-12 sm:w-14 h-12 sm:h-14 bg-tertiary-complementary rounded-full flex items-center justify-center z-10 shadow-lg">
               <span class="text-light font-bold text-lg sm:text-xl">{String(index + 1).padStart(2, '0')}</span>
             </div> 
-            <div class="bg-light rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-10 ml-6 sm:ml-8 shadow-lg sm:shadow-xl border-l-4 border-tertiary-complementary hover:shadow-2xl transition-shadow duration-300">
-              <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-tertiary-complementary/20 to-tertiary-complementary/30 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0 sm:mt-1">
+            <div class="bg-light rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-10 ml-6 sm:ml-8 shadow-lg sm:shadow-xl border-l-4 border-tertiary-complementary hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col">
+              <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 flex-grow">
+                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-tertiary-complementary/20 to-tertiary-complementary/30 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0 lg:mt-0">
                   <div class="text-tertiary-complementary text-sm sm:text-base" set:html={feature.icon}></div>
                 </div>
                 
-                <div class="flex-1 text-center sm:text-left">
-                  <h3 class="text-dark font-bold text-lg sm:text-xl lg:text-2xl mb-3 sm:mb-4">
+                <div class="flex-1 text-center sm:text-left flex flex-col justify-start">
+                  <h3 class="text-dark font-bold text-lg sm:text-xl lg:text-2xl mb-3 sm:mb-4 pl-6">
                     {feature.title}
                   </h3>
-                  <p class="text-gray-600 leading-relaxed text-sm sm:text-base lg:text-lg">
+                  <p class="text-gray-600 leading-relaxed text-sm sm:text-base lg:text-lg pl-6">
                     {feature.description}
                   </p>
                 </div>
