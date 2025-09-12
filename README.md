@@ -1,13 +1,9 @@
-# 🚗 AutoFix - Landing Page# Astro Starter Kit: Basics
+# 🚗 AutoFix - Landing Page
 
-**Una plataforma digital que conecta dueños de vehículos con talleres automotrices especializados**```sh
+**Una plataforma digital que conecta dueños de vehículos con talleres automotrices especializados** 
 
-
-## 🚀 Project Structure
-
+    
 ## 🎯 Objetivo del Proyecto
-
-Inside of your Astro project, you'll see the following folders and files:
 
 AutoFix es una solución completa que digitaliza la experiencia de mantenimiento automotriz, facilitando la conexión entre:
 
