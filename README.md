@@ -1,46 +1,77 @@
-# Astro Starter Kit: Basics
+# 🚗 AutoFix - Landing Page# Astro Starter Kit: Basics
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+**Una plataforma digital que conecta dueños de vehículos con talleres automotrices especializados**```sh
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
 ## 🚀 Project Structure
 
+## 🎯 Objetivo del Proyecto
+
 Inside of your Astro project, you'll see the following folders and files:
 
+AutoFix es una solución completa que digitaliza la experiencia de mantenimiento automotriz, facilitando la conexión entre:
+
 ```text
-/
-├── public/
+
+- **Dueños de vehículos**: Gestión intuitiva de servicios, historial y seguimiento en tiempo real/
+
+- **Talleres especializados**: Herramientas profesionales para administración, técnicos y comunicación con clientes├── public/
+
 │   └── favicon.svg
-├── src
+
+### 🎯 Objetivos Específicos├── src
+
 │   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
+
+1. **Simplificar la gestión** de servicios automotrices│   │   └── astro.svg
+
+2. **Mejorar la comunicación** entre clientes y talleres│   ├── components
+
+3. **Optimizar recursos** y procesos operativos│   │   └── Welcome.astro
+
+4. **Digitalizar la experiencia** tradicional del sector automotriz│   ├── layouts
+
 │   │   └── Layout.astro
-│   └── pages
+
+## 🚀 Estructura del Proyecto│   └── pages
+
 │       └── index.astro
-└── package.json
+
+```text└── package.json
+
+
+## 🛠️ Tecnologías Utilizadas
+
+### **Framework Principal**
+- **[Astro 5.13.6](https://astro.build/)**: Framework web moderno para sitios estáticos de alto rendimiento
+  - ✅ Islands Architecture para máximo rendimiento
+  - ✅ Componentes reutilizables con TypeScript
+  - ✅ Generación estática optimizada
+
+### **Estilos y Diseño**
+- **[Tailwind CSS v4.1](https://tailwindcss.com/)**: Framework de utilidades CSS
+  - ✅ Diseño responsive mobile-first
+  - ✅ Sistema de colores personalizado
+  - ✅ Componentes optimizados y consistentes
+
+### **Tipografías**
+- **Exo Font Family**: Tipografía moderna y legible
+
+### **Herramientas de Desarrollo**
+- **TypeScript**: Tipado estático para mayor robustez
+- **PNPM**: Gestor de paquetes eficiente
+- **Astro Dev Server**: Servidor de desarrollo con hot-reload
+
+## 🎨 Diseño y UX
+
+### **Paleta de Colores**
+```css
+--color-primary: #114358           /* Azul oscuro principal */
+--color-first-complementary: #F2AA1F    /* Naranja CTA */
+--color-second-complementary: #F1ECE7   /* Crema de fondo */
+--color-tertiary-complementary: #6491A4  /* Azul grisáceo */
+--color-dark: #090909              /* Negro principal */
+--color-light: #FFFFFF             /* Blanco */
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+**AutoFix © 2025** - Conectando vehículos con talleres especializados
