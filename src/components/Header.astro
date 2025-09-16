@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import ChangeTheme from "./ChangeTheme.astro";
 import SelectLang from "./SelectLang.astro";
 
 const lang = getLangFromUrl(Astro.url);
@@ -53,6 +54,7 @@ const navItems: NavItem[] = [
                 
                 <!-- Selector de idioma -->
                 <SelectLang variant="dark" />
+                <ChangeTheme variant="dark" />
                 
                 <!-- Botón de Probar Aplicativo Desktop -->
                 <a href={`/${lang}/working`}>
@@ -88,8 +90,9 @@ const navItems: NavItem[] = [
                     </li>
                 ))}
                 <li class="px-4 py-2">
-                    <div class="flex justify-center">
+                    <div class="flex justify-center gap-4">
                         <SelectLang variant="dark" showLabel={true} />
+                        <ChangeTheme variant="dark" showLabel={true} />
                     </div>
                 </li>
                 <li class="pt-4">

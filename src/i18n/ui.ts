@@ -62,6 +62,9 @@ export const ui = {
     "working-subtitle": 'Our web application is under development',
     "working-description": 'We are working hard to offer you the best possible experience.',
     "working-button": 'Back to home',
+    "theme-light": "Light",
+    "theme-dark": "Dark",
+    "theme-toggle": "Toggle theme",
   },
   es: {
     "home-title": "Agenda y gestiona servicios automotrices fácilmente",
@@ -120,5 +123,8 @@ export const ui = {
     "working-subtitle": 'Nuestra aplicación web está en desarrollo',
     "working-description": 'Estamos trabajando arduamente para ofrecerte la mejor experiencia posible.',
     "working-button": 'Volver a inicio',
+    "theme-light": "Claro",
+    "theme-dark": "Oscuro",
+    "theme-toggle": "Cambiar tema",
   },
 } as const;
