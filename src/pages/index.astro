@@ -1,9 +1,6 @@
 ---
-import Home from '../components/Home.astro';
-import Layout from '../layouts/Layout.astro';
-import "../styles/global.css";
----
+import { defaultLang } from '../i18n/ui';
 
-<Layout>
-	<Home />
-</Layout>
+// Redirect to default language
+return Astro.redirect(`/${defaultLang}`);
+---

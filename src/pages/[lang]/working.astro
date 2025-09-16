@@ -1,6 +1,17 @@
 ---
-import LayoutWorking from "../layouts/LayoutWorking.astro";
-import "../styles/global.css";
+import LayoutWorking from "../../layouts/LayoutWorking.astro";
+import { languages } from '../../i18n/ui';
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import "../../styles/global.css";
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const currentYear = new Date().getFullYear();
 ---
@@ -22,15 +33,13 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <h1 class="text-5xl md:text-7xl font-extrabold text-light mb-8">
-        Estamos trabajando
+        {t('working-title')}
       </h1>
       <p class="text-xl md:text-2xl text-light/90 mb-6 max-w-3xl">
-        Nuestra aplicación web está en desarrollo
+        {t('working-subtitle')}
       </p>
       <p class="text-lg text-light/80 mb-16 max-w-2xl leading-relaxed">
-        Estamos creando una experiencia increíble para conectar dueños de
-        vehículos con talleres especializados. Pronto podrás disfrutar de todas
-        nuestras funcionalidades.
+        {t('working-description')}
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4 mb-16">
@@ -38,7 +47,7 @@ const currentYear = new Date().getFullYear();
           href="/"
           class="bg-first-complementary text-light px-8 py-4 rounded-full font-bold text-lg"
         >
-          Volver al inicio
+          {t('working-button')}
         </a>
       </div>
     </div>
@@ -46,7 +55,7 @@ const currentYear = new Date().getFullYear();
     <div
       class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-light/50 text-sm"
     >
-      © {currentYear} AutoFix. Todos los derechos reservados.
+      © {currentYear} AutoFix. {t('footer-rights')}
     </div>
   </main>
 </LayoutWorking>
