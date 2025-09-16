@@ -1,22 +1,26 @@
 ---
 import HomeCard from "./HomeCard.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 // Datos de los pasos del proceso
 const stepsData = [
   {
     number: "01",
-    title: "Registro del usuario",
-    description: "Crea tu cuenta como dueño de vehículo o taller"
+    title: t('home-step1-title'),
+    description: t('home-step1-description')
   },
   {
     number: "02", 
-    title: "Solicitud de servicio",
-    description: "Los clientes solicitan servicios y los talleres publican la disponibilidad de los técnicos"
+    title: t('home-step2-title'),
+    description: t('home-step2-description')
   },
   {
     number: "03",
-    title: "Seguimiento",
-    description: "Mantente informado del progreso mediante notificaciones automáticas"
+    title: t('home-step3-title'),
+    description: t('home-step3-description')
   }
 ];
 ---
@@ -26,10 +30,10 @@ const stepsData = [
     <!-- Título de la sección -->
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-dark mb-4">
-        ¿Cómo funciona?
+        {t('home-guide-title')}
       </h2>
       <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-        Proceso simple y eficiente en 3 pasos
+        {t('home-guide-subtitle')}
       </p>
     </div>
 

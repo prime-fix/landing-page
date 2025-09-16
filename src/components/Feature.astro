@@ -1,8 +1,11 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const featureContent = {
-  title: "Características y funcionalidades",
-  description:
-    "Descubre todas las herramientas diseñadas específicamente para dueños de vehículos y talleres automotrices. Una plataforma completa para digitalizar tu experiencia.",
+  title: t('feature-first-title'),
+  description: t('feature-first-description'),
 };
 
 // SVGs para las características
@@ -34,23 +37,23 @@ const svgIcons = {
 // Datos para dueños de vehículos
 const vehicleOwnerFeatures = [
   {
-    title: "Registrar vehículos",
-    description: "Añade todos tus vehículos con información detallada",
+    title: t('vehicle-feature1-title'),
+    description: t('vehicle-feature1-description'),
     icon: svgIcons.register
   },
   {
-    title: "Solicitar servicios", 
-    description: "Programa citas para mantenimiento, reparaciones o servicios especializados con talleres cercanos",
+    title: t('vehicle-feature2-title'),
+    description: t('vehicle-feature2-description'),
     icon: svgIcons.service
   },
   {
-    title: "Historial completo",
-    description: "Accede al historial completo de servicios de reparación concretados",
+    title: t('vehicle-feature3-title'),
+    description: t('vehicle-feature3-description'),
     icon: svgIcons.history
   },
   {
-    title: "Trackeo",
-    description: "Rastrea en tiempo real el estado de tu vehículo",
+    title: t('vehicle-feature4-title'),
+    description: t('vehicle-feature4-description'),
     icon: svgIcons.track
   }
 ];
@@ -58,8 +61,8 @@ const vehicleOwnerFeatures = [
 // Datos para talleres automotrices
 const workshopFeatures = [
   {
-    title: "Registrar taller",
-    description: "Brinda información sobre el taller para que futuros clientes puedan contactarte",
+    title: t('workshop-feature1-title'),
+    description: t('workshop-feature1-description'),
     icon: `
       <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-data">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /><path d="M9 17v-4" /><path d="M12 17v-1" /><path d="M15 17v-2" /><path d="M12 17v-1" />
@@ -67,8 +70,8 @@ const workshopFeatures = [
     `
   },
   {
-    title: "Gestiona técnicos",
-    description: "Agrega información sobre los técnicos que trabajan en el taller",
+    title: t('workshop-feature2-title'),
+    description: t('workshop-feature2-description'),
     icon: `
       <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
         <path d="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z"/>
@@ -76,8 +79,8 @@ const workshopFeatures = [
     `
   },
   {
-    title: "Notificaciones",
-    description: "Recibe notificaciones en tiempo real cada vez que un cliente quiera gozar de tus servicios",
+    title: t('workshop-feature3-title'),
+    description: t('workshop-feature3-description'),
     icon: `
       <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
         <path d="M10 21H14C14 22.1 13.1 23 12 23S10 22.1 10 21M21 19V20H3V19L5 17V11C5 7.9 7.03 5.17 10 4.29C10 4.19 10 4.1 10 4C10 2.9 10.9 2 12 2S14 2.9 14 4C14 4.1 14 4.19 14 4.29C16.97 5.17 19 7.9 19 11V17L21 19M17 11C17 8.24 14.76 6 12 6S7 8.24 7 11V18H17V11Z"/>
@@ -85,8 +88,8 @@ const workshopFeatures = [
     `
   },
   {
-    title: "Reportar estado de vehículo",
-    description: "Modifica en tiempo real el estado del vehículo",
+    title: t('workshop-feature4-title'),
+    description: t('workshop-feature4-description'),
     icon: `
       <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
         <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5H6.5c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
@@ -119,10 +122,10 @@ const workshopFeatures = [
     <div class="mb-20 sm:mb-24 lg:mb-32">
       <div class="text-center mb-12 sm:mb-14 lg:mb-16">
         <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary mb-4 sm:mb-6 px-4">
-          Para dueños de vehículos
+          {t('feature-second-title')}
         </h2>
         <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4">
-          Herramientas intuitivas para gestionar el mantenimiento y cuidado de tus vehículos
+          {t('feature-second-description')}
         </p>
       </div>
 
@@ -171,10 +174,10 @@ const workshopFeatures = [
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12 sm:mb-16 lg:mb-20">
       <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary mb-4 sm:mb-6 lg:mb-8 px-4">
-        Para talleres automotrices
+        {t('feature-third-title')}
       </h2>
       <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4">
-        Digitaliza tu taller con herramientas profesionales de gestión y administración
+        {t('feature-third-description')}
       </p>
     </div>
 

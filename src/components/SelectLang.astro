@@ -1,0 +1,232 @@
+---
+import { languages } from '../i18n/ui';
+import { getLangFromUrl } from '../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const currentLangName = languages[currentLang as keyof typeof languages];
+
+interface Props {
+  variant?: 'light' | 'dark';
+  showLabel?: boolean;
+}
+
+const { variant = 'light', showLabel = false } = Astro.props;
+
+const baseClasses = "language-selector relative inline-block";
+const buttonBaseClasses = "language-button flex items-center justify-center min-w-[60px] h-12 px-4 border-2 rounded-3xl bg-transparent cursor-pointer transition-all duration-200 font-medium text-base outline-none select-none whitespace-nowrap";
+
+const lightVariantClasses = variant === 'light' 
+  ? "border-[var(--color-dark)] text-[var(--color-dark)] bg-[var(--color-light)] hover:bg-[var(--color-second-complementary)] hover:-translate-y-0.5 hover:shadow-lg focus:shadow-[0_0_0_3px_rgba(17,67,88,0.2)]"
+  : "border-[var(--color-light)] text-[var(--color-light)] bg-[var(--color-dark)] hover:bg-[var(--color-primary)] hover:-translate-y-0.5 hover:shadow-lg focus:shadow-[0_0_0_3px_rgba(241,236,231,0.2)]";
+
+const dropdownBaseClasses = "language-dropdown absolute top-[calc(100%+8px)] left-0 min-w-[140px] border-2 rounded-2xl shadow-lg opacity-0 invisible -translate-y-2 transition-all duration-200 z-[200] overflow-hidden";
+const dropdownVariantClasses = variant === 'light'
+  ? "bg-[var(--color-light)] border-[var(--color-dark)] shadow-[0_8px_24px_rgba(9,9,9,0.15)]"
+  : "bg-[var(--color-dark)] border-[var(--color-light)] shadow-[0_8px_24px_rgba(255,255,255,0.1)]";
+---
+
+<div class={baseClasses} data-variant={variant}>
+  <button 
+    class={`${buttonBaseClasses} ${lightVariantClasses}`}
+    aria-label="Select language"
+    aria-expanded="false"
+    aria-haspopup="listbox"
+  >
+    <div class="flex items-center gap-2">
+      <!-- Globe Icon -->
+      <svg class="flex-shrink-0 transition-transform duration-200" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      
+      {showLabel && <span class="whitespace-nowrap font-medium">{currentLangName}</span>}
+      
+      <!-- Chevron Icon -->
+      <svg class="chevron-icon flex-shrink-0 transition-transform duration-200" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </button>
+  
+  <div class={`${dropdownBaseClasses} ${dropdownVariantClasses}`} role="listbox" aria-label="Available languages">
+    {Object.entries(languages).map(([code, name]) => (
+      <a 
+        href={`/${code}`}
+        class={`language-option flex items-center gap-3 px-4 py-3 text-base font-medium transition-colors duration-200 border-none bg-none w-full cursor-pointer no-underline ${
+          variant === 'light' 
+            ? `text-[var(--color-dark)] hover:bg-[var(--color-second-complementary)] ${code === currentLang ? 'bg-[var(--color-first-complementary)] text-[var(--color-dark)] font-semibold' : ''}`
+            : `text-[var(--color-light)] hover:bg-[var(--color-primary)] ${code === currentLang ? 'bg-[var(--color-first-complementary)] text-[var(--color-dark)] font-semibold' : ''}`
+        }`}
+        role="option"
+        aria-selected={code === currentLang}
+        data-lang={code}
+      >
+        <svg class="flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <span>{name}</span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  class LanguageSelector {
+    private element: HTMLElement;
+    private button: HTMLButtonElement;
+    private dropdown: HTMLElement;
+    private isOpen: boolean = false;
+
+    constructor(element: HTMLElement) {
+      this.element = element;
+      this.button = element.querySelector('.language-button') as HTMLButtonElement;
+      this.dropdown = element.querySelector('.language-dropdown') as HTMLElement;
+      
+      if (this.button && this.dropdown) {
+        this.init();
+      }
+    }
+
+    private init(): void {
+      // Toggle dropdown on button click
+      this.button.addEventListener('click', (e: Event) => {
+        e.stopPropagation();
+        this.toggle();
+      });
+
+      // Close dropdown on outside click
+      document.addEventListener('click', (e: Event) => {
+        if (!this.element.contains(e.target as Node)) {
+          this.close();
+        }
+      });
+
+      // Handle keyboard navigation for button
+      this.button.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.toggle();
+        } else if (e.key === 'Escape') {
+          this.close();
+        } else if (e.key === 'ArrowDown' && this.isOpen) {
+          e.preventDefault();
+          const firstOption = this.dropdown.querySelector('.language-option') as HTMLElement;
+          firstOption?.focus();
+        }
+      });
+
+      // Handle keyboard navigation for options
+      const options = this.dropdown.querySelectorAll('.language-option');
+      options.forEach((option, index) => {
+        option.addEventListener('keydown', (e: Event) => {
+          const keyEvent = e as KeyboardEvent;
+          if (keyEvent.key === 'ArrowDown') {
+            keyEvent.preventDefault();
+            const nextOption = options[index + 1] as HTMLElement;
+            if (nextOption) {
+              nextOption.focus();
+            }
+          } else if (keyEvent.key === 'ArrowUp') {
+            keyEvent.preventDefault();
+            if (index === 0) {
+              this.button.focus();
+            } else {
+              const prevOption = options[index - 1] as HTMLElement;
+              prevOption?.focus();
+            }
+          } else if (keyEvent.key === 'Escape') {
+            this.close();
+            this.button.focus();
+          } else if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
+            keyEvent.preventDefault();
+            (option as HTMLAnchorElement).click();
+          }
+        });
+      });
+    }
+
+    private toggle(): void {
+      this.isOpen ? this.close() : this.open();
+    }
+
+    private open(): void {
+      this.isOpen = true;
+      this.element.classList.add('open');
+      this.dropdown.classList.remove('opacity-0', 'invisible', '-translate-y-2');
+      this.dropdown.classList.add('opacity-100', 'visible', 'translate-y-0');
+      this.button.setAttribute('aria-expanded', 'true');
+      
+      // Rotate chevron
+      const chevron = this.button.querySelector('.chevron-icon');
+      chevron?.classList.add('rotate-180');
+    }
+
+    private close(): void {
+      this.isOpen = false;
+      this.element.classList.remove('open');
+      this.dropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
+      this.dropdown.classList.add('opacity-0', 'invisible', '-translate-y-2');
+      this.button.setAttribute('aria-expanded', 'false');
+      
+      // Reset chevron rotation
+      const chevron = this.button.querySelector('.chevron-icon');
+      chevron?.classList.remove('rotate-180');
+    }
+  }
+
+  // Initialize language selectors when DOM is loaded
+  function initLanguageSelectors(): void {
+    const selectors = document.querySelectorAll('.language-selector');
+    selectors.forEach(selector => {
+      new LanguageSelector(selector as HTMLElement);
+    });
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLanguageSelectors);
+  } else {
+    initLanguageSelectors();
+  }
+
+  // Re-initialize after navigation (for SPAs)
+  document.addEventListener('astro:page-load', initLanguageSelectors);
+</script>
+
+<style>
+  /* Additional custom styles for fine-tuning */
+  .language-option:focus {
+    outline: 2px solid var(--color-first-complementary);
+    outline-offset: -2px;
+  }
+
+  .language-button:active {
+    transform: translateY(0);
+  }
+
+  /* Ensure proper positioning relative to header */
+  .language-selector {
+    position: relative;
+    z-index: 50;
+  }
+
+  /* Improve dropdown positioning */
+  .language-dropdown {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Dark variant specific improvements */
+  [data-variant="dark"] .language-dropdown {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .language-button {
+      min-width: 56px;
+      height: 44px;
+      padding: 10px 14px;
+    }
+  }
+</style>
