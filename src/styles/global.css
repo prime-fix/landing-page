@@ -9,12 +9,23 @@
 		--font-extrabold: "ExoExtraBold", sans-serif;
 		--font-italic: "Exoitalic", sans-serif;
 
+		/* Colores del tema claro (existentes) */
 		--color-primary: #114358;
 		--color-first-complementary: #F2AA1F;
 		--color-second-complementary: #F1ECE7;
 		--color-tertiary-complementary: #6491A4;
 		--color-dark: #090909;
 		--color-light: #FFFFFF;
+
+		/* Colores adicionales para el modo oscuro */
+		--color-dark-bg: #0D1117;
+		--color-dark-surface: #161B22;
+		--color-dark-card: #21262D;
+		--color-dark-border: #30363D;
+		--color-dark-text: #F0F6FC;
+		--color-dark-text-muted: #8B949E;
+		--color-dark-primary: #0D2636;
+		--color-dark-accent: #F2AA1F;
 	}
 
 	html,
@@ -84,4 +95,321 @@
 		font-weight: normal;
 		font-style: italic;
 		font-display: swap;
+	}
+
+	/* Estilos para el modo oscuro */
+	html[data-theme="dark"],
+	html[data-theme="dark"] body {
+		background: var(--color-dark-bg) !important;
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] {
+		background: var(--color-dark-bg) !important;
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] body {
+		background: var(--color-dark-bg) !important;
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] html {
+		background: var(--color-dark-bg) !important;
+	}
+
+	[data-theme="dark"] header {
+		background: var(--color-dark-surface) !important;
+	}
+
+	[data-theme="dark"] .bg-primary {
+		background: var(--color-dark-surface) !important;
+	}
+
+	[data-theme="dark"] .text-white {
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] .text-dark {
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] main,
+	[data-theme="dark"] section {
+		background: var(--color-dark-bg) !important;
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] .bg-white,
+	[data-theme="dark"] .bg-light {
+		background: var(--color-dark-card) !important;
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] .bg-second-complementary {
+		background: var(--color-dark-surface) !important;
+	}
+
+	[data-theme="dark"] .border,
+	[data-theme="dark"] .border-gray-200,
+	[data-theme="dark"] .border-gray-300 {
+		border-color: var(--color-dark-border) !important;
+	}
+
+	[data-theme="dark"] .bg-first-complementary {
+		background: var(--color-first-complementary) !important;
+		color: var(--color-dark) !important;
+	}
+
+	[data-theme="dark"] .hover\\:bg-white:hover {
+		background: var(--color-dark-text) !important;
+		color: var(--color-dark) !important;
+	}
+
+	[data-theme="dark"] h1,
+	[data-theme="dark"] h2,
+	[data-theme="dark"] h3,
+	[data-theme="dark"] h4,
+	[data-theme="dark"] h5,
+	[data-theme="dark"] h6 {
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] p {
+		color: var(--color-dark-text) !important;
+		font-weight: 400 !important;
+	}
+
+	[data-theme="dark"] a {
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] a:hover {
+		color: var(--color-first-complementary) !important;
+	}
+
+	[data-theme="dark"] .container {
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] input,
+	[data-theme="dark"] textarea,
+	[data-theme="dark"] select {
+		background: var(--color-dark-surface) !important;
+		color: var(--color-dark-text) !important;
+		border-color: var(--color-dark-border) !important;
+	}
+
+	[data-theme="dark"] footer {
+		background: var(--color-dark-surface) !important;
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] {
+		/* Fondos */
+		--tw-bg-opacity: 1;
+		background-color: var(--color-dark-bg);
+	}
+
+	[data-theme="dark"] .bg-second-complementary {
+		background-color: var(--color-dark-surface) !important;
+	}
+
+	[data-theme="dark"] .text-gray-600,
+	[data-theme="dark"] .text-gray-700,
+	[data-theme="dark"] .text-gray-800 {
+		color: var(--color-dark-text-muted) !important;
+	}
+
+	[data-theme="dark"] .shadow,
+	[data-theme="dark"] .shadow-lg,
+	[data-theme="dark"] .shadow-xl {
+		box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06) !important;
+	}
+
+	[data-theme="dark"] header.bg-primary {
+		background: linear-gradient(135deg, var(--color-dark-surface) 0%, var(--color-dark-primary) 100%) !important;
+	}
+
+	[data-theme="dark"] .home-presentation {
+		background: var(--color-dark-bg) !important;
+	}
+
+	[data-theme="dark"] .home-presentation h2,
+	[data-theme="dark"] .home-presentation h3 {
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] .home-presentation p {
+		color: var(--color-dark-text) !important;
+		font-weight: 400 !important;
+		opacity: 0.9 !important;
+	}
+
+	[data-theme="dark"] .home-card {
+		background: var(--color-dark-card) !important;
+		border: 1px solid var(--color-dark-border) !important;
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] .home-card h3 {
+		color: var(--color-dark-text) !important;
+		font-weight: 600 !important;
+	}
+
+	[data-theme="dark"] .home-card p {
+		color: var(--color-dark-text) !important;
+		font-weight: 400 !important;
+		opacity: 0.9 !important;
+		line-height: 1.6 !important;
+	}
+
+	[data-theme="dark"] .home-guide {
+		background: var(--color-dark-bg) !important;
+	}
+
+	[data-theme="dark"] .home-guide h2,
+	[data-theme="dark"] .home-guide h3 {
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] .home-guide p {
+		color: var(--color-dark-text) !important;
+		font-weight: 400 !important;
+		opacity: 0.9 !important;
+	}
+
+	[data-theme="dark"] .step-card {
+		background: var(--color-dark-card) !important;
+		border: 1px solid var(--color-dark-border) !important;
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] .step-card h3 {
+		color: var(--color-dark-text) !important;
+		font-weight: 600 !important;
+	}
+
+	[data-theme="dark"] .step-card p {
+		color: var(--color-dark-text) !important;
+		font-weight: 400 !important;
+		opacity: 0.9 !important;
+		line-height: 1.6 !important;
+	}
+
+	[data-theme="dark"] .step-number {
+		background: var(--color-first-complementary) !important;
+		color: var(--color-dark) !important;
+	}
+
+	[data-theme="dark"] .workshop-section {
+		background: var(--color-dark-bg) !important;
+	}
+
+	[data-theme="dark"] .workshop-section h2,
+	[data-theme="dark"] .workshop-section h3 {
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] .workshop-section p {
+		color: var(--color-dark-text) !important;
+		font-weight: 400 !important;
+		opacity: 0.9 !important;
+	}
+
+	[data-theme="dark"] .workshop-feature {
+		background: var(--color-dark-card) !important;
+		border: 1px solid var(--color-dark-border) !important;
+		color: var(--color-dark-text) !important;
+	}
+
+	[data-theme="dark"] .workshop-feature h3 {
+		color: var(--color-dark-text) !important;
+		font-weight: 600 !important;
+	}
+
+	[data-theme="dark"] .workshop-feature p {
+		color: var(--color-dark-text) !important;
+		font-weight: 400 !important;
+		opacity: 0.9 !important;
+		line-height: 1.6 !important;
+	}
+
+	[data-theme="dark"] .icon-container {
+		background: var(--color-dark-surface) !important;
+		border: 2px solid var(--color-first-complementary) !important;
+	}
+
+	[data-theme="dark"] .icon-container svg,
+	[data-theme="dark"] .icon-container i {
+		color: var(--color-first-complementary) !important;
+		filter: brightness(1.2);
+	}
+
+	/* Números de pasos más visibles */
+	[data-theme="dark"] .step-number,
+	[data-theme="dark"] .number-badge {
+		background: var(--color-first-complementary) !important;
+		color: var(--color-dark) !important;
+		font-weight: bold !important;
+		box-shadow: 0 0 10px rgba(242, 170, 31, 0.3) !important;
+	}
+
+	/* Mejorar contraste de títulos principales */
+	[data-theme="dark"] .section-title {
+		color: var(--color-dark-text) !important;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+	}
+
+	[data-theme="dark"] .section-subtitle {
+		color: var(--color-dark-text) !important;
+		opacity: 0.85 !important;
+		font-weight: 400 !important;
+	}
+
+	/* Estilos generales para mejorar contraste en cualquier sección */
+	[data-theme="dark"] .bg-gray-50,
+	[data-theme="dark"] .bg-gray-100 {
+		background: var(--color-dark-surface) !important;
+	}
+
+	[data-theme="dark"] .text-gray-500,
+	[data-theme="dark"] .text-gray-600 {
+		color: var(--color-dark-text) !important;
+		opacity: 0.9 !important;
+		font-weight: 400 !important;
+	}
+
+	/* Cards y contenedores con bordes */
+	[data-theme="dark"] .rounded-lg,
+	[data-theme="dark"] .rounded-xl {
+		border: 1px solid var(--color-dark-border) !important;
+	}
+
+	/* Hover states mejorados */
+	[data-theme="dark"] .hover\\:bg-gray-50:hover {
+		background: var(--color-dark-surface) !important;
+	}
+
+	[data-theme="dark"] .hover\\:shadow-lg:hover {
+		box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1) !important;
+	}
+
+	/* Específico para componentes de Astro/React */
+	[data-theme="dark"] [class*="bg-"] {
+		transition: all 0.3s ease !important;
+	}
+
+	/* Mejorar legibilidad de texto pequeño */
+	[data-theme="dark"] .text-sm {
+		color: var(--color-dark-text) !important;
+		font-weight: 500 !important;
+		opacity: 0.9 !important;
+	}
+
+	/* Dividers y separadores */
+	[data-theme="dark"] hr,
+	[data-theme="dark"] .border-t,
+	[data-theme="dark"] .border-b {
+		border-color: var(--color-dark-border) !important;
 	}
