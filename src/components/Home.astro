@@ -1,6 +1,10 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import HomeGuide from "./HomeGuide.astro";
 import HomePresentation from "./HomePresentation.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 interface HeroContent {
   title: string;
@@ -11,12 +15,13 @@ interface HeroContent {
 }
 
 const heroContent: HeroContent = {
-  title: "Agenda y gestiona servicios automotrices fácilmente",
-  description: "Dueños de vehículos y talleres conectados en una sola plataforma. Simplifica la gestión, mejora la comunicación y optimiza tus servicios",
-  buttonText: "Probar aplicativo",
-  imageAlt: "Imagen de inicio - AutoFix",
-  imageSrc: "./assets/images/home.webp"
+  title: t('home-title'),
+  description: t('home-description'),
+  buttonText: t('buttonText'),
+  imageAlt: t('home-imageAlt'),
+  imageSrc: "/assets/images/home.webp"
 };
+
 ---
 
 <section class="min-h-screen bg-second-complementary pt-24 pb-16">
@@ -33,7 +38,7 @@ const heroContent: HeroContent = {
         </p>
 
         <div class="pt-4">
-          <a href="/working">
+          <a href={`/${lang}/working`}>
             <button
               class="bg-first-complementary text-white text-lg sm:text-xl font-bold py-4 px-8 sm:px-12 rounded-full hover:bg-white hover:text-first-complementary transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
             >

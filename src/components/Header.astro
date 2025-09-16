@@ -1,13 +1,19 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import SelectLang from "./SelectLang.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 interface NavItem {
   href: string;
   label: string;
 }
 
 const navItems: NavItem[] = [
-  { href: "/", label: "Inicio" },
-  { href: "/features", label: "Características" },
-  { href: "#contact", label: "Contacto" },
+  { href: `/${lang}`, label: t('label-home') },
+  { href: `/${lang}/features`, label: t('label-features') },
+  { href: `#contact`, label: t('label-contact') },
 ];
 ---
 
@@ -16,40 +22,45 @@ const navItems: NavItem[] = [
         <nav class="flex items-center justify-between py-4">
             <!-- Logo -->
             <div class="flex items-center">
-                <a href="/" class="flex items-center group">
+                <a href={`/${lang}`} class="flex items-center group">
                     <img 
                         class="bg-light rounded-lg transition-transform duration-300 group-hover:scale-105" 
-                        src="./logo.svg" 
+                        src="/logo.svg" 
                         alt="Logo de AutoFix" 
                         width="50" 
                         height="40"
                     >
                     <span class="ml-3 font-bold text-2xl md:text-3xl text-white transition-colors duration-300 group-hover:text-first-complementary">
-                        AutoFix
+                        PrimeFix
                     </span>
                 </a>
             </div>
 
             <!-- Navegación Desktop -->
-            <ul class="hidden md:flex items-center space-x-8">
-                {navItems.map((item) => (
-                    <li>
-                        <a 
-                            href={item.href} 
-                            class="text-white hover:text-first-complementary font-bold text-lg transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-first-complementary after:transition-all after:duration-300 hover:after:w-full"
-                        >
-                            {item.label}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-
-            <a href="/working">
+            <div class="hidden md:flex items-center space-x-6">
+                <ul class="flex items-center space-x-8">
+                    {navItems.map((item) => (
+                        <li>
+                            <a 
+                                href={item.href} 
+                                class="text-white hover:text-first-complementary font-bold text-lg transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-first-complementary after:transition-all after:duration-300 hover:after:w-full"
+                            >
+                                {item.label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+                
+                <!-- Selector de idioma -->
+                <SelectLang variant="dark" />
+                
                 <!-- Botón de Probar Aplicativo Desktop -->
-                <button class="hidden md:block bg-first-complementary text-white text-lg font-bold py-3 px-8 rounded-full hover:bg-white hover:text-first-complementary transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                    Probar aplicativo
-                </button>
-            </a>
+                <a href={`/${lang}/working`}>
+                    <button class="bg-first-complementary text-white text-lg font-bold py-3 px-8 rounded-full hover:bg-white hover:text-first-complementary transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        {t('buttonText')}
+                    </button>
+                </a>
+            </div>
 
             <!-- Ícono hamburguesa Mobile -->
             <button 
@@ -76,10 +87,15 @@ const navItems: NavItem[] = [
                         </a>
                     </li>
                 ))}
+                <li class="px-4 py-2">
+                    <div class="flex justify-center">
+                        <SelectLang variant="dark" showLabel={true} />
+                    </div>
+                </li>
                 <li class="pt-4">
-                    <a href="/working">
+                    <a href={`/${lang}/working`}>
                         <button class="w-full bg-first-complementary text-white text-lg font-bold py-3 px-8 rounded-full hover:bg-white hover:text-first-complementary transition-all duration-300 shadow-lg">
-                            Probar aplicativo
+                            {t('buttonText')}
                         </button>
                     </a>
                 </li>
