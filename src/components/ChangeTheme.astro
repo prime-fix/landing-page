@@ -1,0 +1,331 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+interface Props {
+  variant?: 'light' | 'dark';
+  showLabel?: boolean;
+}
+
+const { variant = 'light', showLabel = false } = Astro.props;
+
+const baseClasses = "theme-selector relative inline-block";
+const buttonBaseClasses = "theme-button flex items-center justify-center min-w-[60px] h-12 px-4 border-2 rounded-3xl bg-transparent cursor-pointer transition-all duration-200 font-medium text-base outline-none select-none whitespace-nowrap";
+
+const lightVariantClasses = variant === 'light' 
+  ? "border-[var(--color-dark)] text-[var(--color-dark)] bg-[var(--color-light)] hover:bg-[var(--color-second-complementary)] hover:-translate-y-0.5 hover:shadow-lg focus:shadow-[0_0_0_3px_rgba(17,67,88,0.2)]"
+  : "border-[var(--color-light)] text-[var(--color-light)] bg-[var(--color-dark)] hover:bg-[var(--color-primary)] hover:-translate-y-0.5 hover:shadow-lg focus:shadow-[0_0_0_3px_rgba(241,236,231,0.2)]";
+
+const dropdownBaseClasses = "theme-dropdown absolute top-[calc(100%+8px)] left-0 min-w-[140px] border-2 rounded-2xl shadow-lg opacity-0 invisible -translate-y-2 transition-all duration-200 z-[200] overflow-hidden";
+const dropdownVariantClasses = variant === 'light'
+  ? "bg-[var(--color-light)] border-[var(--color-dark)] shadow-[0_8px_24px_rgba(9,9,9,0.15)]"
+  : "bg-[var(--color-dark)] border-[var(--color-light)] shadow-[0_8px_24px_rgba(255,255,255,0.1)]";
+
+const themes = [
+  { value: 'light', label: t('theme-light') },
+  { value: 'dark', label: t('theme-dark') }
+];
+---
+
+<div class={baseClasses} data-variant={variant}>
+  <button 
+    class={`${buttonBaseClasses} ${lightVariantClasses}`}
+    aria-label={t('theme-toggle')}
+    aria-expanded="false"
+    aria-haspopup="listbox"
+  >
+    <div class="flex items-center gap-2">
+      <!-- Theme Icon (Sun/Moon) -->
+      <svg class="theme-icon flex-shrink-0 transition-transform duration-200" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Sun Icon (default for light theme) -->
+        <circle class="sun-icon" cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+        <path class="sun-icon" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2"/>
+        
+        <!-- Moon Icon (hidden by default) -->
+        <path class="moon-icon hidden" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" fill="currentColor"/>
+      </svg>
+      
+      {showLabel && <span class="current-theme whitespace-nowrap font-medium">{t('theme-light')}</span>}
+      
+      <!-- Chevron Icon -->
+      <svg class="chevron-icon flex-shrink-0 transition-transform duration-200" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </button>
+  
+  <div class={`${dropdownBaseClasses} ${dropdownVariantClasses}`} role="listbox" aria-label="Available themes">
+    {themes.map((theme) => (
+      <button 
+        class={`theme-option flex items-center gap-3 px-4 py-3 text-base font-medium transition-colors duration-200 border-none bg-none w-full cursor-pointer ${
+          variant === 'light' 
+            ? 'text-[var(--color-dark)] hover:bg-[var(--color-second-complementary)]'
+            : 'text-[var(--color-light)] hover:bg-[var(--color-primary)]'
+        }`}
+        role="option"
+        data-theme={theme.value}
+      >
+        {theme.value === 'light' ? (
+          <svg class="flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        ) : (
+          <svg class="flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" fill="currentColor"/>
+          </svg>
+        )}
+        <span>{theme.label}</span>
+      </button>
+    ))}
+  </div>
+</div>
+
+<script>
+  class ThemeSelector {
+    private element: HTMLElement;
+    private button: HTMLButtonElement;
+    private dropdown: HTMLElement;
+    private isOpen: boolean = false;
+    private currentTheme: string = 'light';
+
+    constructor(element: HTMLElement) {
+      this.element = element;
+      this.button = element.querySelector('.theme-button') as HTMLButtonElement;
+      this.dropdown = element.querySelector('.theme-dropdown') as HTMLElement;
+      
+      if (this.button && this.dropdown) {
+        this.init();
+      }
+    }
+
+    private init(): void {
+      // Load saved theme from localStorage
+      this.loadTheme();
+
+      // Toggle dropdown on button click
+      this.button.addEventListener('click', (e: Event) => {
+        e.stopPropagation();
+        this.toggle();
+      });
+
+      // Close dropdown on outside click
+      document.addEventListener('click', (e: Event) => {
+        if (!this.element.contains(e.target as Node)) {
+          this.close();
+        }
+      });
+
+      // Handle keyboard navigation for button
+      this.button.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.toggle();
+        } else if (e.key === 'Escape') {
+          this.close();
+        } else if (e.key === 'ArrowDown' && this.isOpen) {
+          e.preventDefault();
+          const firstOption = this.dropdown.querySelector('.theme-option') as HTMLElement;
+          firstOption?.focus();
+        }
+      });
+
+      // Handle theme option clicks
+      const options = this.dropdown.querySelectorAll('.theme-option');
+      options.forEach((option, index) => {
+        option.addEventListener('click', (e: Event) => {
+          e.preventDefault();
+          const themeValue = (option as HTMLElement).dataset.theme;
+          if (themeValue) {
+            this.setTheme(themeValue);
+          }
+          this.close();
+        });
+
+        option.addEventListener('keydown', (e: Event) => {
+          const keyEvent = e as KeyboardEvent;
+          if (keyEvent.key === 'ArrowDown') {
+            keyEvent.preventDefault();
+            const nextOption = options[index + 1] as HTMLElement;
+            if (nextOption) {
+              nextOption.focus();
+            }
+          } else if (keyEvent.key === 'ArrowUp') {
+            keyEvent.preventDefault();
+            if (index === 0) {
+              this.button.focus();
+            } else {
+              const prevOption = options[index - 1] as HTMLElement;
+              prevOption?.focus();
+            }
+          } else if (keyEvent.key === 'Escape') {
+            this.close();
+            this.button.focus();
+          } else if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
+            keyEvent.preventDefault();
+            const themeValue = (option as HTMLElement).dataset.theme;
+            if (themeValue) {
+              this.setTheme(themeValue);
+            }
+            this.close();
+          }
+        });
+      });
+    }
+
+    private loadTheme(): void {
+      // Check localStorage first, then system preference, default to light
+      const savedTheme = localStorage.getItem('theme');
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      this.currentTheme = savedTheme || systemTheme;
+      this.applyTheme(this.currentTheme);
+    }
+
+    private setTheme(theme: string): void {
+      this.currentTheme = theme;
+      localStorage.setItem('theme', theme);
+      this.applyTheme(theme);
+    }
+
+    private applyTheme(theme: string): void {
+      // Apply theme to document
+      document.documentElement.setAttribute('data-theme', theme);
+      
+      // Update button icon and label
+      this.updateButtonDisplay(theme);
+      
+      // Update active option styling
+      this.updateActiveOption(theme);
+    }
+
+    private updateButtonDisplay(theme: string): void {
+      const sunIcon = this.button.querySelector('.sun-icon') as SVGElement;
+      const moonIcon = this.button.querySelector('.moon-icon') as SVGElement;
+      const currentThemeLabel = this.button.querySelector('.current-theme') as HTMLElement;
+
+      if (theme === 'dark') {
+        sunIcon?.classList.add('hidden');
+        moonIcon?.classList.remove('hidden');
+        if (currentThemeLabel) {
+          currentThemeLabel.textContent = currentThemeLabel.textContent?.includes('Dark') || currentThemeLabel.textContent?.includes('Oscuro') ? currentThemeLabel.textContent : 'Dark';
+        }
+      } else {
+        sunIcon?.classList.remove('hidden');
+        moonIcon?.classList.add('hidden');
+        if (currentThemeLabel) {
+          currentThemeLabel.textContent = currentThemeLabel.textContent?.includes('Light') || currentThemeLabel.textContent?.includes('Claro') ? currentThemeLabel.textContent : 'Light';
+        }
+      }
+    }
+
+    private updateActiveOption(theme: string): void {
+      const options = this.dropdown.querySelectorAll('.theme-option');
+      options.forEach(option => {
+        const optionElement = option as HTMLElement;
+        if (optionElement.dataset.theme === theme) {
+          optionElement.classList.add('bg-[var(--color-first-complementary)]', 'text-[var(--color-dark)]', 'font-semibold');
+        } else {
+          optionElement.classList.remove('bg-[var(--color-first-complementary)]', 'text-[var(--color-dark)]', 'font-semibold');
+        }
+      });
+    }
+
+    private toggle(): void {
+      this.isOpen ? this.close() : this.open();
+    }
+
+    private open(): void {
+      this.isOpen = true;
+      this.element.classList.add('open');
+      this.dropdown.classList.remove('opacity-0', 'invisible', '-translate-y-2');
+      this.dropdown.classList.add('opacity-100', 'visible', 'translate-y-0');
+      this.button.setAttribute('aria-expanded', 'true');
+      
+      // Rotate chevron
+      const chevron = this.button.querySelector('.chevron-icon');
+      chevron?.classList.add('rotate-180');
+    }
+
+    private close(): void {
+      this.isOpen = false;
+      this.element.classList.remove('open');
+      this.dropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
+      this.dropdown.classList.add('opacity-0', 'invisible', '-translate-y-2');
+      this.button.setAttribute('aria-expanded', 'false');
+      
+      // Reset chevron rotation
+      const chevron = this.button.querySelector('.chevron-icon');
+      chevron?.classList.remove('rotate-180');
+    }
+  }
+
+  // Initialize theme selectors when DOM is loaded
+  function initThemeSelectors(): void {
+    const selectors = document.querySelectorAll('.theme-selector');
+    selectors.forEach(selector => {
+      new ThemeSelector(selector as HTMLElement);
+    });
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeSelectors);
+  } else {
+    initThemeSelectors();
+  }
+
+  // Re-initialize after navigation (for SPAs)
+  document.addEventListener('astro:page-load', initThemeSelectors);
+
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      const theme = e.matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+  });
+</script>
+
+<style>
+  /* Additional custom styles for fine-tuning */
+  .theme-option:focus {
+    outline: 2px solid var(--color-first-complementary);
+    outline-offset: -2px;
+  }
+
+  .theme-button:active {
+    transform: translateY(0);
+  }
+
+  /* Ensure proper positioning relative to header */
+  .theme-selector {
+    position: relative;
+    z-index: 50;
+  }
+
+  /* Improve dropdown positioning */
+  .theme-dropdown {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Dark variant specific improvements */
+  [data-variant="dark"] .theme-dropdown {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Theme icon animations */
+  .theme-icon svg {
+    transition: all 0.3s ease;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .theme-button {
+      min-width: 56px;
+      height: 44px;
+      padding: 10px 14px;
+    }
+  }
+</style>
