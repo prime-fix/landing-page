@@ -1,6 +1,20 @@
 ---
-import { defaultLang } from '../i18n/ui';
-
-// Redirect to default language
-return Astro.redirect(`/${defaultLang}`);
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Home from '../components/Home.astro';
+import HomePresentation from '../components/HomePresentation.astro';
+import HomeGuide from '../components/HomeGuide.astro';
+import Feature from '../components/Feature.astro';
+import Footer from '../components/Footer.astro';
 ---
+
+<Layout title="AutoFix - Plataforma Digital Automotriz">
+	<Header />
+	<main>
+		<Home />
+		<HomePresentation />
+		<HomeGuide />
+		<Feature />
+	</main>
+	<Footer />
+</Layout>
