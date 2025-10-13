@@ -1,341 +1,230 @@
-# 🚗 AutoFix - Landing Page# 🚗 AutoFix - Landing Page
+<div align="center">
 
+# 🚀 Prime Fix's Landing Page 
 
+[![Astro](https://img.shields.io/badge/Astro-5.13.6-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1.13-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Vercel](https://img.shields.io/badge/Vercel-Deploy-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
-**Una plataforma digital que conecta dueños de vehículos con talleres automotrices especializados****Una plataforma digital que conecta dueños de vehículos con talleres automotrices especializados** 
+**A modern, multilingual landing page built with Astro and TailwindCSS**
 
+[Demo](#) · [Report Bug](#) · [Request Feature](#)
 
+</div>
 
-![AutoFix](https://img.shields.io/badge/AutoFix-Landing%20Page-blue?style=for-the-badge)    
+---
 
-![Astro](https://img.shields.io/badge/Astro-5.13.6-FF5D01?style=for-the-badge&logo=astro&logoColor=white)## 🎯 Objetivo del Proyecto
+## 📋 Table of Contents
 
-![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4.1-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Development](#development)
+- [Available Scripts](#-available-scripts)
+- [Internationalization](#-internationalization)
+- [Deployment](#-deployment)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
 
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)AutoFix es una solución completa que digitaliza la experiencia de mantenimiento automotriz, facilitando la conexión entre:
+---
 
+## 🎯 Overview
 
+This is a modern, responsive landing page built with **Astro** and styled with **TailwindCSS**. The project features a multi-language system, theme switching capabilities, and is optimized for deployment on Vercel.
 
-## 🎯 Objetivo del Proyecto```text
+## ✨ Features
 
+- 🌐 **Multilingual Support** - Built-in internationalization (i18n) system
+- 🎨 **Theme Switching** - Dark/Light mode toggle
+- ⚡ **Lightning Fast** - Built with Astro for optimal performance
+- 📱 **Fully Responsive** - Mobile-first design approach
+- 🎯 **SEO Optimized** - Meta tags and semantic HTML
+- 🚀 **Vercel Ready** - Pre-configured for seamless deployment
+- 💅 **Modern Styling** - TailwindCSS v4 with Vite plugin
+- 🔧 **Type Safety** - TypeScript configuration included
 
+## 🛠️ Tech Stack
 
-AutoFix es una solución completa que digitaliza la experiencia de mantenimiento automotriz, facilitando la conexión entre:- **Dueños de vehículos**: Gestión intuitiva de servicios, historial y seguimiento en tiempo real/
+| Technology | Purpose | Version |
+|------------|---------|---------|
+| **[Astro](https://astro.build)** | Web Framework | 5.13.6 |
+| **[TailwindCSS](https://tailwindcss.com)** | CSS Framework | 4.1.13 |
+| **[TypeScript](https://www.typescriptlang.org/)** | Type Safety | Latest |
+| **[Vercel](https://vercel.com)** | Deployment Platform | - |
+| **[pnpm](https://pnpm.io/)** | Package Manager | Latest |
 
+## 📁 Project Structure
 
-
-- **Dueños de vehículos**: Gestión intuitiva de servicios, historial y seguimiento en tiempo real- **Talleres especializados**: Herramientas profesionales para administración, técnicos y comunicación con clientes├── public/
-
-- **Talleres especializados**: Herramientas profesionales para administración, técnicos y comunicación con clientes
-
-│   └── favicon.svg
-
-### 🎯 Objetivos Específicos
-
-### 🎯 Objetivos Específicos├── src
-
-1. **Simplificar la gestión** de servicios automotrices
-
-2. **Mejorar la comunicación** entre clientes y talleres│   ├── assets
-
-3. **Optimizar recursos** y procesos operativos
-
-4. **Digitalizar la experiencia** tradicional del sector automotriz1. **Simplificar la gestión** de servicios automotrices│   │   └── astro.svg
-
-
-
-## 🚀 Estructura del Proyecto2. **Mejorar la comunicación** entre clientes y talleres│   ├── components
-
-
-
-```text3. **Optimizar recursos** y procesos operativos│   │   └── Welcome.astro
-
+```
 landing-page/
-
-├── public/4. **Digitalizar la experiencia** tradicional del sector automotriz│   ├── layouts
-
-│   ├── favicon.svg
-
-│   ├── logo.svg│   │   └── Layout.astro
-
+├── public/                  # Static assets
 │   └── assets/
-
-│       ├── fonts/## 🚀 Estructura del Proyecto│   └── pages
-
-│       │   ├── exo-bold.woff2
-
-│       │   ├── exo-extrabold.woff2│       └── index.astro
-
-│       │   ├── exo-italic.woff2
-
-│       │   ├── exo-medium.woff2```text└── package.json
-
-│       │   ├── exo-regular.woff2
-
-│       │   └── exo-semibold.woff2
-
-│       ├── images/## 🛠️ Tecnologías Utilizadas
-
-│       └── videos/
-
-├── src/### **Framework Principal**
-
-│   ├── components/- **[Astro 5.13.6](https://astro.build/)**: Framework web moderno para sitios estáticos de alto rendimiento
-
-│   │   ├── Header.astro          # Navegación principal  - ✅ Islands Architecture para máximo rendimiento
-
-│   │   ├── Footer.astro          # Pie de página  - ✅ Componentes reutilizables con TypeScript
-
-│   │   ├── Home.astro            # Sección hero  - ✅ Generación estática optimizada
-
-│   │   ├── HomePresentation.astro # Beneficios para usuarios
-
-│   │   ├── HomeGuide.astro       # Guía de 3 pasos### **Estilos y Diseño**
-
-│   │   ├── HomeCard.astro        # Componente card reutilizable- **[Tailwind CSS v4.1](https://tailwindcss.com/)**: Framework de utilidades CSS
-
-│   │   └── Feature.astro         # Características y funcionalidades  - ✅ Diseño responsive mobile-first
-
-│   ├── layouts/  - ✅ Sistema de colores personalizado
-
-│   │   └── Layout.astro          # Layout base  - ✅ Componentes optimizados y consistentes
-
-│   ├── pages/
-
-│   │   ├── index.astro           # Página principal### **Tipografías**
-
-│   │   └── working.astro         # Página "En construcción"- **Exo Font Family**: Tipografía moderna y legible
-
+│       ├── fonts/          # Custom fonts
+│       └── images/         # Images and graphics
+├── src/
+│   ├── components/         # Reusable Astro components
+│   │   ├── ChangeTheme.astro
+│   │   ├── Feature.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── Home.astro
+│   │   ├── HomeCard.astro
+│   │   ├── HomeGuide.astro
+│   │   ├── HomePresentation.astro
+│   │   └── SelectLang.astro
+│   ├── i18n/               # Internationalization
+│   │   ├── ui.ts          # Translation strings
+│   │   └── utils.ts       # i18n utilities
+│   ├── layouts/            # Page layouts
+│   │   ├── Layout.astro
+│   │   └── LayoutWorking.astro
+│   ├── pages/              # File-based routing
+│   │   ├── index.astro
+│   │   └── [lang]/        # Dynamic language routes
+│   │       ├── features.astro
+│   │       ├── index.astro
+│   │       └── working.astro
 │   └── styles/
-
-│       └── global.css            # Estilos globales y tema### **Herramientas de Desarrollo**
-
-├── astro.config.mjs- **TypeScript**: Tipado estático para mayor robustez
-
-├── package.json- **PNPM**: Gestor de paquetes eficiente
-
-├── pnpm-lock.yaml- **Astro Dev Server**: Servidor de desarrollo con hot-reload
-
-└── tsconfig.json
-
-```## 🎨 Diseño y UX
-
-
-
-## 🛠️ Tecnologías Utilizadas### **Paleta de Colores**
-
-```css
-
-### **Framework Principal**--color-primary: #114358           /* Azul oscuro principal */
-
-- **[Astro 5.13.6](https://astro.build/)**: Framework web moderno para sitios estáticos de alto rendimiento--color-first-complementary: #F2AA1F    /* Naranja CTA */
-
-  - ✅ Islands Architecture para máximo rendimiento--color-second-complementary: #F1ECE7   /* Crema de fondo */
-
-  - ✅ Componentes reutilizables con TypeScript--color-tertiary-complementary: #6491A4  /* Azul grisáceo */
-
-  - ✅ Generación estática optimizada--color-dark: #090909              /* Negro principal */
-
---color-light: #FFFFFF             /* Blanco */
-
-### **Estilos y Diseño**```
-
-- **[Tailwind CSS v4.1](https://tailwindcss.com/)**: Framework de utilidades CSS
-
-  - ✅ Diseño responsive mobile-first**AutoFix © 2025** - Conectando vehículos con talleres especializados
-  - ✅ Sistema de colores personalizado
-  - ✅ Componentes optimizados y consistentes
-
-### **Tipografías**
-- **Exo Font Family**: Tipografía moderna y legible
-  - Regular, Medium, SemiBold, Bold, ExtraBold, Italic
-  - Formato WOFF2 para máxima optimización
-
-### **Herramientas de Desarrollo**
-- **TypeScript**: Tipado estático para mayor robustez
-- **PNPM**: Gestor de paquetes eficiente
-- **Astro Dev Server**: Servidor de desarrollo con hot-reload
-
-## 🎨 Diseño y UX
-
-### **Paleta de Colores**
-```css
---color-primary: #114358           /* Azul oscuro principal */
---color-first-complementary: #F2AA1F    /* Naranja CTA */
---color-second-complementary: #F1ECE7   /* Crema de fondo */
---color-tertiary-complementary: #6491A4  /* Azul grisáceo */
---color-dark: #090909              /* Negro principal */
---color-light: #FFFFFF             /* Blanco */
+│       └── global.css      # Global styles
+├── astro.config.mjs        # Astro configuration
+├── package.json            # Dependencies
+├── tsconfig.json           # TypeScript configuration
+└── README.md               # Documentation
 ```
 
-### **Componentes Principales**
+## 🚀 Getting Started
 
-#### 🏠 **Home (Hero Section)**
-- Presentación principal con CTA prominente
-- Layout de 2 columnas responsive
-- Imagen destacada con efectos visuales
+### Prerequisites
 
-#### 📋 **HomePresentation**
-- Cards de beneficios para dueños y talleres
-- Design diferenciado con íconos SVG temáticos
-- Grid responsive con altura uniforme
+Before you begin, ensure you have the following installed:
 
-#### 📖 **HomeGuide**
-- Proceso de 3 pasos numerados
-- Reutilización del componente HomeCard
-- Flujo visual claro y comprensible
+- **Node.js** (v18.0.0 or higher)
+- **pnpm** (v8.0.0 or higher)
 
-#### ⚙️ **Feature**
-- Sección de características detalladas
-- Dos layouts diferentes para evitar monotonía
-- SVGs personalizados y spacing optimizado
+```powershell
+# Check Node.js version
+node --version
 
-#### 🧭 **Header**
-- Navegación fija con logo corporativo
-- Menú hamburguesa funcional en móvil
-- Enlaces a secciones principales
+# Check pnpm version
+pnpm --version
 
-## 🚧 Páginas Implementadas
-
-### **Página Principal (`/`)**
-- ✅ Sección Hero completa
-- ✅ Beneficios para usuarios
-- ✅ Guía de uso en 3 pasos
-- ✅ Características y funcionalidades
-- ✅ Navegación funcional
-
-### **Página En Construcción (`/working`)**
-- ✅ Diseño profesional de "work in progress"
-- ✅ Información del progreso de desarrollo (75%)
-- ✅ Contacto y enlaces de retorno
-- ✅ Sin animaciones (por preferencia del cliente)
-
-## 🧞 Comandos Disponibles
-
-Todos los comandos se ejecutan desde la raíz del proyecto:
-
-| Comando                | Acción                                            |
-| :--------------------- | :------------------------------------------------ |
-| `pnpm install`         | Instala todas las dependencias del proyecto      |
-| `pnpm dev`            | Inicia servidor de desarrollo en `localhost:4322` |
-| `pnpm build`          | Construye el sitio para producción en `./dist/`  |
-| `pnpm preview`        | Previsualiza la build localmente antes de deploy |
-| `pnpm astro ...`      | Ejecuta comandos CLI de Astro                    |
-| `pnpm astro -- --help`| Obtiene ayuda sobre comandos de Astro CLI        |
-
-## 🚀 Instalación y Desarrollo
-
-### **Prerrequisitos**
-- Node.js 18+ 
-- PNPM (recomendado) o NPM
-
-### **Pasos de instalación**
-
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/prime-fix/landing-page.git
-   cd landing-page
-   ```
-
-2. **Instalar dependencias**
-   ```bash
-   pnpm install
-   ```
-
-3. **Iniciar servidor de desarrollo**
-   ```bash
-   pnpm dev
-   ```
-
-4. **Abrir en navegador**
-   - Navega a `http://localhost:4322/`
-   - La página se recarga automáticamente con los cambios
-
-### **Build para producción**
-```bash
-pnpm build
-pnpm preview  # Para previsualizar antes de deploy
+# Install pnpm if needed
+npm install -g pnpm
 ```
 
-## 📱 Características Responsive
+### Installation
 
-- **Mobile First**: Diseño optimizado desde 320px
-- **Breakpoints**: sm (640px), md (768px), lg (1024px), xl (1280px)
-- **Grid Adaptativo**: Layouts que se adaptan automáticamente
-- **Tipografía Escalable**: Tamaños de fuente responsive
-- **Navegación Móvil**: Menú hamburguesa funcional
-- **Touch Friendly**: Botones y enlaces optimizados para táctil
+1. **Clone the repository**
 
-## 🔧 Funcionalidades Implementadas
+```powershell
+git clone https://github.com/prime-fix-app-web/landing-page.git
+cd landing-page
+```
 
-### **Navegación**
-- [x] Header fijo con navegación principal
-- [x] Logo corporativo interactivo
-- [x] Menú móvil con hamburguesa funcional
-- [x] Enlaces a secciones principales
-- [x] Botón CTA que dirige a página de construcción
+2. **Install dependencies**
 
-### **Secciones de Contenido**
-- [x] Hero section con información principal
-- [x] Beneficios diferenciados por tipo de usuario
-- [x] Guía de uso paso a paso
-- [x] Características detalladas con SVGs
-- [x] Separadores visuales y elementos decorativos
+```powershell
+pnpm install
+```
 
-### **UX/UI**
-- [x] Diseño completamente responsive
-- [x] Sistema de colores coherente
-- [x] Tipografía profesional (Exo)
-- [x] Cards con altura uniforme
-- [x] Efectos hover sutiles
-- [x] Loading y estados optimizados
+### Development
 
-## 🎨 Guía de Estilos
+Start the development server:
 
-### **Componentes Reutilizables**
-- **HomeCard**: Card base para información con ícono opcional
-- **Layout**: Template base con meta tags y fuentes
-- **Header**: Navegación consistente en todas las páginas
+```powershell
+pnpm dev
+```
 
-### **Convenciones de Código**
-- Componentes en PascalCase (`HomeCard.astro`)
-- Archivos de páginas en lowercase (`working.astro`)
-- Clases CSS con Tailwind utilities
-- TypeScript para tipado de props
+The application will be available at `http://localhost:4321`
 
-## 🔄 Estado Actual
+## 📜 Available Scripts
 
-### **Completado ✅**
-- Diseño responsive completo
-- Todas las secciones principales implementadas
-- Navegación funcional
-- Sistema de componentes establecido
-- Página de construcción
-- Optimización de rendimiento
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Starts the development server with hot reload |
+| `pnpm build` | Builds the project for production |
+| `pnpm preview` | Previews the production build locally |
+| `pnpm astro` | Access Astro CLI commands |
 
-### **Próximos Pasos 🚧**
-- Integración con API backend
-- Formularios de contacto funcionales
-- Animaciones adicionales (opcional)
-- SEO y meta tags específicos
-- Analíticas y tracking
+## 🌐 Internationalization
 
-## 👥 Equipo
+The project includes a built-in internationalization system supporting multiple languages.
 
-- **Desarrollo Frontend**: Implementación con Astro + Tailwind
-- **Diseño UX/UI**: Creación de mockups y sistema de diseño
-- **Product Management**: Definición de requisitos y funcionalidades
+### Adding a New Language
+
+1. Add translations in `src/i18n/ui.ts`
+2. Create language-specific routes in `src/pages/[lang]/`
+3. Update the language selector component
+
+### Usage Example
+
+```astro
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<h1>{t('welcome')}</h1>
+```
+
+## 🚢 Deployment
+
+### Deploy to Vercel
+
+This project is pre-configured for Vercel deployment:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/prime-fix-app-web/landing-page)
+
+#### Manual Deployment
+
+1. **Install Vercel CLI**
+
+```powershell
+pnpm add -g vercel
+```
+
+2. **Deploy**
+
+```powershell
+vercel
+```
+
+3. **Production Deployment**
+
+```powershell
+vercel --prod
+```
+
+## 🤝 Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## 📧 Contact
+
+**Project Link:** [https://github.com/prime-fix-app-web/landing-page](https://github.com/prime-fix-app-web/landing-page)
 
 ---
 
-### 📞 Contacto
+<div align="center">
 
-Para consultas sobre el desarrollo o funcionamiento de la landing page:
+**Made using Astro and TailwindCSS**
 
-- **Repositorio**: [prime-fix/landing-page](https://github.com/prime-fix/landing-page)
-- **Branch principal**: `master`
-- **Estado**: En desarrollo activo
-
----
-
-**AutoFix © 2025** - Conectando vehículos con talleres especializados
+</div>
