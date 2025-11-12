@@ -1,20 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Home from '../components/Home.astro';
-import HomePresentation from '../components/HomePresentation.astro';
-import HomeGuide from '../components/HomeGuide.astro';
-import Feature from '../components/Feature.astro';
-import Footer from '../components/Footer.astro';
----
+import { languages, defaultLang } from '../i18n/ui';
 
-<Layout title="AutoFix - Plataforma Digital Automotriz">
-	<Header />
-	<main>
-		<Home />
-		<HomePresentation />
-		<HomeGuide />
-		<Feature />
-	</main>
-	<Footer />
-</Layout>
+// Detectar el idioma del navegador del lado del servidor
+const acceptLanguage = Astro.request.headers.get('accept-language') || '';
+const browserLang = acceptLanguage.split(',')[0]?.split('-')[0] || defaultLang;
+
+// Verificar si el idioma del navegador está soportado
+const targetLang = browserLang in languages ? browserLang : defaultLang;
+
+// Redirigir al idioma detectado o al idioma por defecto
+return Astro.redirect(`/${targetLang}/`);
+---

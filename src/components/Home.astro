@@ -68,3 +68,49 @@ const heroContent: HeroContent = {
 <HomePresentation />
 
 <HomeGuide />
+
+<!-- Sección de Video de Marketing -->
+<section class="py-16 sm:py-20 lg:py-24 bg-light">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <!-- Título de la sección -->
+      <div class="text-center mb-12 sm:mb-16">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-4 sm:mb-6">
+          {t('video-marketing-title')}
+        </h2>
+        <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          {t('video-marketing-description')}
+        </p>
+      </div>
+
+      <!-- Contenedor del video -->
+      <div class="relative group">
+        <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-primary/10 to-first-complementary/10 border-2 border-primary/20">
+          <div class="aspect-video bg-gray-900 flex items-center justify-center relative">
+            <!-- YouTube Video Embed -->
+            <iframe 
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/TIMqVwHm9_M"
+              title="PrimeFix - Video de Marketing"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          
+          </div>
+        </div>
+
+        <!-- Elementos decorativos -->
+        <div class="absolute -top-6 -left-6 w-24 h-24 bg-first-complementary/20 rounded-full blur-2xl"></div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl"></div>
+      </div>
+
+      <!-- Descripción adicional -->
+      <div class="mt-8 sm:mt-12 text-center">
+        <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+          {t('video-marketing-footer')}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
