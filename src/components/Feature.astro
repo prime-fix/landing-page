@@ -154,6 +154,79 @@ const workshopFeatures = [
           </div>
         ))}
       </div>
+
+      <!-- Sección de imágenes de funcionalidades para dueños de vehículos -->
+      <div class="mt-16 sm:mt-20 lg:mt-24 max-w-7xl mx-auto px-4">
+        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-primary mb-12 sm:mb-16">
+          Capturas de pantalla de las funcionalidades
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
+          <!-- Imagen 1: Registro de vehículos -->
+          <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-tertiary-complementary/10 to-transparent border-2 border-tertiary-complementary/20">
+            <div class="aspect-video bg-gray-200 flex items-center justify-center overflow-hidden relative">
+              <img 
+                src="/assets/images/screenshots/register-vehicle-placeholder.webp" 
+                alt="Captura de pantalla - Registro de vehículos"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4 sm:p-6 bg-white">
+              <h4 class="text-lg sm:text-xl font-bold text-dark mb-2">{vehicleOwnerFeatures[0].title}</h4>
+              <p class="text-gray-600 text-sm sm:text-base">{vehicleOwnerFeatures[0].description}</p>
+            </div>
+          </div>
+
+          <!-- Imagen 2: Solicitud de servicios -->
+          <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-tertiary-complementary/10 to-transparent border-2 border-tertiary-complementary/20">
+            <div class="aspect-video bg-gray-200 flex items-center justify-center overflow-hidden relative">
+              <img 
+                src="/assets/images/screenshots/request-service-placeholder.webp" 
+                alt="Captura de pantalla - Solicitud de servicios"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4 sm:p-6 bg-white">
+              <h4 class="text-lg sm:text-xl font-bold text-dark mb-2">{vehicleOwnerFeatures[1].title}</h4>
+              <p class="text-gray-600 text-sm sm:text-base">{vehicleOwnerFeatures[1].description}</p>
+            </div>
+          </div>
+
+          <!-- Imagen 3: Historial completo -->
+          <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-tertiary-complementary/10 to-transparent border-2 border-tertiary-complementary/20">
+            <div class="aspect-video bg-gray-200 flex items-center justify-center overflow-hidden relative">
+              <img 
+                src="/assets/images/screenshots/history-placeholder.webp" 
+                alt="Captura de pantalla - Historial completo"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4 sm:p-6 bg-white">
+              <h4 class="text-lg sm:text-xl font-bold text-dark mb-2">{vehicleOwnerFeatures[2].title}</h4>
+              <p class="text-gray-600 text-sm sm:text-base">{vehicleOwnerFeatures[2].description}</p>
+            </div>
+          </div>
+
+          <!-- Imagen 4: Seguimiento -->
+          <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-tertiary-complementary/10 to-transparent border-2 border-tertiary-complementary/20">
+            <div class="aspect-video bg-gray-200 flex items-center justify-center overflow-hidden relative">
+              <img 
+                src="/assets/images/screenshots/tracking-placeholder.webp" 
+                alt="Captura de pantalla - Seguimiento"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4 sm:p-6 bg-white">
+              <h4 class="text-lg sm:text-xl font-bold text-dark mb-2">{vehicleOwnerFeatures[3].title}</h4>
+              <p class="text-gray-600 text-sm sm:text-base">{vehicleOwnerFeatures[3].description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="flex items-center justify-center mt-20 sm:mt-24 lg:mt-28 px-4">
@@ -201,6 +274,125 @@ const workshopFeatures = [
           </div>
         </div>
       ))}
+    </div>
+
+    <!-- Sección de imágenes de funcionalidades para talleres -->
+    <div class="mt-16 sm:mt-20 lg:mt-24 max-w-7xl mx-auto px-4">
+      <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-primary mb-12 sm:mb-16">
+        Vista de las funcionalidades para talleres
+      </h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
+        <!-- Imagen 1: Registrar taller -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-first-complementary/10 to-transparent border-2 border-first-complementary/20">
+          <div class="aspect-video bg-gray-200 flex items-center justify-center overflow-hidden relative">
+            <img 
+              src="/assets/images/screenshots/register-workshop-placeholder.webp" 
+              alt="Captura de pantalla - Registro de taller"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-4 sm:p-6 bg-tertiary-complementary">
+            <h4 class="text-lg sm:text-xl font-bold text-light mb-2">{workshopFeatures[0].title}</h4>
+            <p class="text-light/90 text-sm sm:text-base">{workshopFeatures[0].description}</p>
+          </div>
+        </div>
+
+        <!-- Imagen 2: Gestionar técnicos -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-first-complementary/10 to-transparent border-2 border-first-complementary/20">
+          <div class="aspect-video bg-gray-200 flex items-center justify-center overflow-hidden relative">
+            <img 
+              src="/assets/images/screenshots/manage-technicians-placeholder.webp" 
+              alt="Captura de pantalla - Gestión de técnicos"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-4 sm:p-6 bg-tertiary-complementary">
+            <h4 class="text-lg sm:text-xl font-bold text-light mb-2">{workshopFeatures[1].title}</h4>
+            <p class="text-light/90 text-sm sm:text-base">{workshopFeatures[1].description}</p>
+          </div>
+        </div>
+
+        <!-- Imagen 3: Notificaciones -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-first-complementary/10 to-transparent border-2 border-first-complementary/20">
+          <div class="aspect-video bg-gray-200 flex items-center justify-center overflow-hidden relative">
+            <img 
+              src="/assets/images/screenshots/notifications-placeholder.webp" 
+              alt="Captura de pantalla - Notificaciones"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-4 sm:p-6 bg-tertiary-complementary">
+            <h4 class="text-lg sm:text-xl font-bold text-light mb-2">{workshopFeatures[2].title}</h4>
+            <p class="text-light/90 text-sm sm:text-base">{workshopFeatures[2].description}</p>
+          </div>
+        </div>
+
+        <!-- Imagen 4: Reportar estado -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-first-complementary/10 to-transparent border-2 border-first-complementary/20">
+          <div class="aspect-video bg-gray-200 flex items-center justify-center overflow-hidden relative">
+            <img 
+              src="/assets/images/screenshots/report-status-placeholder.webp" 
+              alt="Captura de pantalla - Reportar estado de mantenimiento"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-4 sm:p-6 bg-tertiary-complementary">
+            <h4 class="text-lg sm:text-xl font-bold text-light mb-2">{workshopFeatures[3].title}</h4>
+            <p class="text-light/90 text-sm sm:text-base">{workshopFeatures[3].description}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Video del Equipo -->
+<section class="py-16 sm:py-20 lg:py-24 bg-light">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <!-- Título de la sección -->
+      <div class="text-center mb-12 sm:mb-16">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-4 sm:mb-6">
+          {t('video-team-title')}
+        </h2>
+        <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          {t('video-team-description')}
+        </p>
+      </div>
+
+      <!-- Contenedor del video -->
+      <div class="relative group">
+        <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-first-complementary/10 to-tertiary-complementary/10 border-2 border-first-complementary/20">
+          <div class="aspect-video bg-gray-900 flex items-center justify-center relative">
+            <!-- YouTube Video Embed -->
+            <iframe 
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/gfN0Wz7XyYg"
+              title="PrimeFix - Nuestro Equipo"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+        
+          </div>
+        </div>
+
+        <!-- Elementos decorativos -->
+        <div class="absolute -top-6 -right-6 w-24 h-24 bg-tertiary-complementary/20 rounded-full blur-2xl"></div>
+        <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-first-complementary/20 rounded-full blur-2xl"></div>
+      </div>
+
+      <!-- Descripción adicional -->
+      <div class="mt-8 sm:mt-12 text-center">
+        <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+          {t('video-team-footer')}
+        </p>
+      </div>
     </div>
   </div>
 </section>

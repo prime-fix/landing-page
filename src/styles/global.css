@@ -420,3 +420,60 @@ html[data-theme="dark"] body {
 [data-theme="dark"] .border-b {
   border-color: var(--color-dark-border) !important;
 }
+
+/* Estilos para las secciones de imágenes de funcionalidades */
+[data-theme="dark"] .group.relative.overflow-hidden {
+  border-color: var(--color-dark-border) !important;
+}
+
+[data-theme="dark"] .aspect-video.bg-gray-200 {
+  background: var(--color-dark-card) !important;
+}
+
+[data-theme="dark"] .aspect-video .absolute.inset-0 {
+  background: linear-gradient(to bottom right, var(--color-dark-surface), var(--color-dark-card)) !important;
+}
+
+[data-theme="dark"] .aspect-video .text-gray-400 {
+  color: var(--color-dark-text-muted) !important;
+}
+
+/* Mejora visual de las cards de imágenes en modo oscuro */
+[data-theme="dark"] .group:hover .shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(242, 170, 31, 0.25) !important;
+}
+
+/* Estilos para los videos de YouTube */
+[data-theme="dark"] iframe {
+  border: 2px solid var(--color-dark-border) !important;
+  border-radius: 1rem;
+}
+
+[data-theme="dark"] .aspect-video {
+  background: var(--color-dark-card) !important;
+}
+
+/* Contenedores de video en modo oscuro */
+[data-theme="dark"] .aspect-video.bg-gray-900 {
+  background: var(--color-dark-surface) !important;
+}
+
+/* Estilos para secciones de video */
+[data-theme="dark"] iframe {
+  border-radius: 1rem;
+}
+
+[data-theme="dark"] .aspect-video.bg-gray-900 {
+  background: var(--color-dark-card) !important;
+}
+
+/* Bordes de videos en modo oscuro */
+[data-theme="dark"] .border-primary\/20 {
+  border-color: var(--color-first-complementary) !important;
+  opacity: 0.3;
+}
+
+[data-theme="dark"] .border-first-complementary\/20 {
+  border-color: var(--color-first-complementary) !important;
+  opacity: 0.4;
+}
