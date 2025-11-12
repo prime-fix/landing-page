@@ -71,6 +71,8 @@ export const ui = {
     "video-team-title": "Meet our team",
     "video-team-description": "The people behind PrimeFix, committed to transforming the automotive industry",
     "video-team-footer": "A passionate team working to bring digital innovation to the automotive sector",
+    "screenshots-vehicle-title": "Feature screenshots",
+    "screenshots-workshop-title": "Workshop features overview",
   },
   es: {
     "home-title": "Agenda y gestiona servicios automotrices fácilmente",
@@ -138,5 +140,7 @@ export const ui = {
     "video-team-title": "Conoce a nuestro equipo",
     "video-team-description": "Las personas detrás de PrimeFix, comprometidas con transformar la industria automotriz",
     "video-team-footer": "Un equipo apasionado trabajando para llevar la innovación digital al sector automotriz",
+    "screenshots-vehicle-title": "Capturas de pantalla de las funcionalidades",
+    "screenshots-workshop-title": "Vista de las funcionalidades para talleres",
   },
 } as const;
